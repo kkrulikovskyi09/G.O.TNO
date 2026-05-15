@@ -3,7 +3,7 @@
     width: 595.15px;
     height: 578.4px;
     right: -247.15px;
-    top: 723px;
+    top: 65vh;
 
 }
 
@@ -11,7 +11,7 @@
     width: 727.08px;
     height: 429.15px;
     right: -321.08px;
-    top: 194px;
+    top: 10vh;
 
 }
 
@@ -19,7 +19,7 @@
     width: 739.64px;
     height: 676.53px;
     left: -341px;
-    top: -20px;
+    top: 0vh;
 
 }
 
@@ -27,7 +27,7 @@
     width: 577.37px;
     height: 554.69px;
     left: -203px;
-    top: 556px;
+    top: 65vh;
 }
 
 .group15, .group16, .group17, .group18 {
@@ -42,9 +42,17 @@
       ) * 0.7 + 0.5
     )
   );
+  display: block;
+  opacity: 1;
   z-index: -1;
 }
 
+@media (max-width: 800px) {
+  .group15, .group16, .group17, .group18 {
+    display: none;
+    opacity: 0;
+  }
+}
 
 /* 
 \max\left(\min\left(\frac{x-b}{c-b},1\right),0\right)

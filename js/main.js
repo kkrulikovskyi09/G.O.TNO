@@ -16,12 +16,45 @@ const ctx = canvas.getContext("2d");
 /* FUNCTION AND LAMBDA */
 const mod = (n, m) => ((n % m) + m) % m;
 
+const title = document.getElementById('title');
+const logo = document.querySelector('.logo');
+
+const longText = 'Шляхом нових можливостей';
+const shortText = 'ШНМ';
+const minFullTextWidth = 240;
+
+function updateTitleText() {
+    if (!title || !logo) return;
+
+    const style = window.getComputedStyle(navbar);
+
+    const contentWidth = parseFloat(style.width); 
+    console.log(contentWidth + 'px');
+
+    if (contentWidth < 450) {
+        if (title.textContent !== shortText) {
+        title.textContent = shortText;
+        title.classList.add('margin-is-small');
+        console.log('shortest');
+        }
+    } else {
+        if (title.textContent !== longText) {
+        title.textContent = longText;
+        title.classList.remove('margin-is-small');
+        console.log('longest')
+        }
+    }
+}
+
+const observer = new ResizeObserver(updateTitleText);
+if (logo) observer.observe(logo);
+
 function resize(){
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    
+    updateTitleText();
 }
 
 resize(); window.addEventListener("resize", resize);
